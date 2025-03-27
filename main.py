@@ -10,6 +10,10 @@ def main():
     # Use pygame's display.set.mode() to get a new GUI window
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    # Create pygame clock
+    pygame.time.Clock()
+    dt = 0
+
     # Create (infinite) game loop
     while True:
         for event in pygame.event.get():
@@ -17,6 +21,11 @@ def main():
                 return
         # fill screen with solid black color
         screen.fill(0)
+
+        # at end of iteration, call .tick, pas 60 (pauses game loop until 1/60th of a second passes)
+        pygame.time.Clock().tick(60)
+        dt = pygame.time.Clock().tick(60) / 1000
+
         # refresh screen (last thing in loop)
         pygame.display.flip()
 
