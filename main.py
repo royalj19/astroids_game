@@ -12,6 +12,9 @@ def main():
 
     # Create (infinite) game loop
     while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
         # fill screen with solid black color
         screen.fill(0)
         # refresh screen (last thing in loop)
