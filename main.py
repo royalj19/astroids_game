@@ -27,6 +27,9 @@ def main():
         # fill screen with solid black color
         screen.fill(0)
 
+        # Check for movement
+        player.update(dt)
+
         # at end of iteration, call .tick, pas 60 (pauses game loop until 1/60th of a second passes)
         pygame.time.Clock().tick(60)
         dt = pygame.time.Clock().tick(60) / 1000
