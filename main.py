@@ -1,5 +1,7 @@
 import pygame
+
 from constants import *
+from player import *
 
 def main():
     pygame.init()
@@ -14,6 +16,9 @@ def main():
     pygame.time.Clock()
     dt = 0
 
+    # Draw Player
+    player = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
+
     # Create (infinite) game loop
     while True:
         for event in pygame.event.get():
@@ -25,6 +30,9 @@ def main():
         # at end of iteration, call .tick, pas 60 (pauses game loop until 1/60th of a second passes)
         pygame.time.Clock().tick(60)
         dt = pygame.time.Clock().tick(60) / 1000
+
+        # re-render player
+        player.draw(screen)
 
         # refresh screen (last thing in loop)
         pygame.display.flip()
